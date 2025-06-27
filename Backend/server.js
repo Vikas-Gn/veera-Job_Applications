@@ -65,7 +65,7 @@ const applicationUpload = multer({
 const offerStorage = multer.diskStorage({
     destination: async (req, file, cb) => {
         try {
-            const uploadPath = path.join(__dirname, 'Uploads');
+            const uploadPath = path.join(__dirname, 'uploads');
             await fs.mkdir(uploadPath, { recursive: true });
             cb(null, uploadPath);
         } catch (error) {
