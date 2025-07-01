@@ -65,7 +65,7 @@ const applicationUpload = multer({
 const offerStorage = multer.diskStorage({
     destination: async (req, file, cb) => {
         try {
-            const uploadPath = path.join(__dirname, 'uploads');
+            const uploadPath = path.join(__dirname, 'Uploads');
             await fs.mkdir(uploadPath, { recursive: true });
             cb(null, uploadPath);
         } catch (error) {
@@ -514,7 +514,7 @@ app.delete('/api/applications/files/:fileId', async (req, res) => {
 app.listen(port, async () => {
     try {
         await pool.connect();
-        console.log(`Server running on http://65.0.182.44:${port}`);
+        console.log(`Server running on http://13.233.138.24:${port}`);
     } catch (error) {
         console.error('Failed to connect to database:', error);
         process.exit(1);
