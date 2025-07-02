@@ -709,7 +709,7 @@
                     </tr>`;
                 clearError();
 
-                const url = new URL('http://13.233.138.24:3066/api/applications');
+                const url = new URL('http://43.205.116.109:3066/api/applications');
                 if (searchTerm) url.searchParams.append('search', searchTerm);
                 url.searchParams.append('page', page);
                 url.searchParams.append('limit', limit);
@@ -756,7 +756,7 @@
                 if (error.name === 'AbortError') {
                     userMessage += 'Request timed out. Please check your network connection.';
                 } else if (error.message.includes('Failed to fetch')) {
-                    userMessage += 'Ensure the backend server is running at http://13.233.138.24:3066.';
+                    userMessage += 'Ensure the backend server is running at http://43.205.116.109:3066.';
                 } else {
                     userMessage += 'Verify the database connection and API response format.';
                 }
@@ -861,7 +861,7 @@
 
             const fileName = file.name || 'Unnamed file';
             const mimeType = fileName.endsWith('.pdf') ? 'application/pdf' : `image/${fileName.split('.').pop().toLowerCase()}`;
-            const fileUrl = file.path.startsWith('http') ? file.path : `http://13.233.138.24:3066/${file.path}`;
+            const fileUrl = file.path.startsWith('http') ? file.path : `http://43.205.116.109:3066/${file.path}`;
             let previewHtml = '';
 
             if (mimeType.startsWith('image/')) {
@@ -1036,7 +1036,7 @@
 
         async function updateStatus(id, status) {
             try {
-                const response = await fetch(`http://13.233.138.24:3066/api/applications/${id}`, {
+                const response = await fetch(`http://43.205.116.109:3066/api/applications/${id}`, {
                     method: 'PATCH',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ status })
