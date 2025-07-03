@@ -46,5 +46,13 @@ services:
     ports:
       - "8096:80"
 
+  view_offer:
+    build: ./View_offer
+    container_name: veera-view-offer
+    ports:
+      - "8097:80"
+    networks:
+      - jobapp-network
+
 volumes:
   db_data:
